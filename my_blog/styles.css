@@ -1,0 +1,21 @@
+li, a{
+    display: block;
+    padding: 50px;
+    width: 100%;
+    position: fixed;
+}
+
+nav {
+    display: block;
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+}
+ul {
+    list-style-type: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
