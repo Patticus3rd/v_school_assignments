@@ -1,6 +1,6 @@
 * {
     font-family: 'Bangers', cursive;
-    background-image: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/mariowallpaper.jpg);
+    background-image: url(mariowallpaper.jpg);
     background-attachment: fixed;
 }
 
@@ -66,37 +66,37 @@ p {
 
 /* images for baddies */
 .goomba {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/200px-Goomba_-_MarioPartyStarRush.png);
+    content: url(goomba.png);
     width: 100px;
     height: 130px;
 }
 
 .magikoopa {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/240px-Magikoopa_Artwork_-_Super_Mario_3D_World.png);
+    content: url(magikoopa.png);
     width: 100px;
     height: 130px;
 }
 
 .hammerbro {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/200px-Hammer_Bro-NSMBU.png);
+    content: url(hammerbro.png);
     width: 100px;
     height: 130px;
 }
 
 .koopatroopa {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/MP10KoopaTroopa.png);
+    content: url(koopatroopa.png);
     width: 100px;
     height: 130px;
 }
 
 .drybones {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/250px-MPSR_Dry_Bones.png);
+    content: url(drybone.png);
     width: 100px;
     height: 130px;
 }
 
 .shyguy {
-    content: url(/Users/patrickseiuli/Desktop/mario_pest_contrl/200px-ShyGuyCTTT_artwork.png);
+    content: url(shyguy.png);
     width: 100px;
     height: 130px;
 }
