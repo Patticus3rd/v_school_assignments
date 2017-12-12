@@ -1,7 +1,2 @@
-var num = 105;  
-do {  
-  console.log(num);
-  num++;
-} while (num <= 100);
+var fs = require("fs")
 
-console.log(num);

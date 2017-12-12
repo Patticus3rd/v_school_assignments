@@ -1,0 +1,25 @@
+@font-face {
+    font-family: luigi;
+    src: url(fonts/SuperMario256.ttf);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.banner {
+    padding: 30px;
+}
+
+.rows {
+    width: 100%;
+}
+
+.row:first-child {
+    background-color: #ffda09;
+    height: 10%;
+}
