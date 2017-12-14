@@ -1,0 +1,36 @@
+* {
+    font-family: 'Julius Sans One', sans-serif;
+    margin: auto;
+}
+
+.pagewrapper{
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr;
+    margin: auto;
+    padding: auto;
+}
+
+.header{
+    font-family: 'Libre Baskerville', serif;   
+    background-color: green;
+    height: 325px;
+    width: 100%;
+    margin: auto;
+    padding: auto;
+}
+.logo{
+    background-image: url("images/huntington.png")
+    
+}
+.body{
+    background-color: white;
+}
+
+.sidenav{
+    background-color: thistle;
+}
+
+.footer{
+    background-color: mediumseagreen;
+}

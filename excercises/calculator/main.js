@@ -6,13 +6,16 @@ var whichOperator = rs.question("What operator would you like to use?")
 
 
 function totalOutput() {
-    if( whichOperator = "+" ){
-        console.log(Number(firstInput) + Number(secondInput)) 
-    }if( whichOperator = "-"){
-        console.log(firstInput - secondInput)
-    }if( whichOperator = "*" ){
-        console.log(firstInput * secondInput) 
-    }
+    if( whichOperator === "+" ){
+        console.log("Your total is:" + " " + Number(firstInput) + Number(secondInput)); 
+    }if( whichOperator === "-"){
+        console.log(firstInput - secondInput);
+    }if( whichOperator === "*" ){
+        console.log(firstInput * secondInput);
+    }if( whichOperator === "%"){
+        console.log(firstInput/secondInput);
+    }else
+    null
 }
 
 totalOutput()
