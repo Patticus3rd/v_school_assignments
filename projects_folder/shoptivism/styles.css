@@ -1,0 +1,12 @@
+* {
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    
+}
+

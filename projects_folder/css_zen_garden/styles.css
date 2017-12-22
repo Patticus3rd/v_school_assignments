@@ -3,26 +3,81 @@
     margin: auto;
 }
 
-.pagewrapper{
+/* .pagewrapper{
     display: grid;
     grid-template-columns: 2fr;
-    grid-template-rows: 1fr;
-    margin: auto;
-    padding: auto;
+    grid-template-rows: 4fr;
+    /* margin: auto;
+    padding: auto; */
+/* } */ 
+
+@media only screen and (max-width: 1132px),
+    header {
+    border-top: solid 10px rgba(19, 67, 71, 0.9);
+};
+ 
+header{
+    background: url('images/huntington.jpg');
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url('images/contours.png'), url('images/noise.png'), url('images/gridlines.png'), url('images/huntington.jpg');
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    height: 1194px;
+    font-size: 100%;
 }
 
-.header{
-    font-family: 'Libre Baskerville', serif;   
-    background-color: green;
-    height: 325px;
-    width: 100%;
-    margin: auto;
-    padding: auto;
+h1{
+    /* font-family: 'Libre Baskerville', serif; */
+    height: 60px;
+    font-size: 40px;
+    color: white;
 }
-.logo{
-    background-image: url("images/huntington.png")
+h1::before{
+    background-image:  url('images/enso.svg');
+    display: inline-block;
+    position: relative;
+    top: 20px;
+    content: "";
+    width: 80px;
+    height: 80px;
+    margin: -20px 20px 0 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.6;
+}
+
+h2{
+    color: white;
+    margin: 0;
+    padding-left:100px;
     
 }
+
+.sidelink{
+    float: right;
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    display: block;
+    line-height: 60px;
+}
+
+.sidelink::after{
+    content: '>';
+    line-height: 60px;
+    size: 40px;
+}
+
+.center{
+    padding-top: 60px;
+    padding-left: 80px;
+    
+}
+
 .body{
     background-color: white;
 }

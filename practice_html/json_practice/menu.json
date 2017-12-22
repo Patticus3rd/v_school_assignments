@@ -1,0 +1,90 @@
+{
+    "appetizers": ["Mini-Sliders", {
+            "name": "Mini Sliders",
+            "ingredients": ["Buns", "Lettuce", "Meat"],
+            "description": "SO GOOOOOOOD! Just try it."
+        },
+        "Bacon Mushrooms", {
+            "name": "Mini Sliders",
+            "ingredients": ["Buns", "Lettuce", "Meat"],
+            "description": "SO GOOOOOOOD! Just try it."
+        },
+        "Chips & Dips", {
+            "name": "Mini Sliders",
+            "ingredients": ["Buns", "Lettuce", "Meat"],
+            "description": "SO GOOOOOOOD! Just try it."
+        }, "Crab Legs", {
+            "name": "Mini Sliders",
+            "ingredients": ["Buns", "Lettuce", "Meat"],
+            "description": "SO GOOOOOOOD! Just try it."
+        }
+    ],
+
+    "cold sandwhiches": ["Hammich", {
+            "name": "Hammich",
+            "ingredients": ["Bread", "Ham", "Condiments"],
+            "description": "Great on a hot day"
+        },
+        "Thank Turkey", {
+            "name": "Thank Turkey",
+            "ingredients": ["Bread", "Turkey", "Condiments"],
+            "description": "Thanks giving is all year round with this which"
+        },
+
+        "Its-Not-So-Cold-Sandwhich", {
+            "name": "Its-Not-So-Cold-Sandwhich",
+            "ingredients": ["Bread", "Ice Cubes", "Kethcup"],
+            "description": "This is perfect for a normal day"
+        },
+
+        "Ice Cream Sandwhich", {
+            "name": "Ice Cream Sandwhich",
+            "ingredients": ["Ice Cream", "Cookies", "Syrup"],
+            "description": "Whoa, what?? Yes...This is a real thing"
+        }
+    ],
+    "hot sandwhiches": ["Mans-Not-Hot Sandwhich", {
+            "name": "Mans-Not-Hot Sandwhich",
+            "ingredients": ["Bread", "Winter Coat", "Gratataa"],
+            "description": "Two plus two is four, Minus one thats three, quick maths"
+        },
+        "Hell Sandwhich", {
+            "name": "Hell Sandwhich",
+            "ingredients": ["Hell Bread", "Demon Meat", "Holy Water"],
+            "description": "If you're already going to hell, this would be nice to have"
+        },
+        "So-Hot-You-Should-Drink-Some-Water Sandwhich", {
+            "name": "So-Hot-You-Should-Drink-Some-Water Sandwhich",
+            "ingredients": ["Bread", "Spicy Sauce", "Spicy meat"],
+            "description": "Well you should order water with this"
+        }
+    ],
+
+    "desserts": ["Cereal Cake", {
+            "name": "Cereal Cake",
+            "ingredients": ["Favorite Cereal", "Whipped Cream", "Cake Batter"],
+            "description": "Choose your favorite cereal and we will make a cake"
+        },
+        "Cake-In-The-Ocean", {
+            "name": "Cake-In-The-Ocean",
+            "ingredients": ["Cake", "Vodka", "Umbrella"],
+            "description": "Rated M for you probably should be older than 18"
+        },
+        "Hot/Cold Ice Cream", {
+            "name": "Hot/Cold Ice Cream",
+            "ingredients": ["Ice Cream", "Something Hot", "Somthing Cold"],
+            "description": "This is pretty good if you dont know what to get"
+        }
+    ],
+    "drinks": ["Drink-This-If-You-Are-Cold Drink", {
+            "name": "Drink-This-If-You-Are-Cold Drink",
+            "ingredients": ["Ice", "Vodka", "Whiskey"],
+            "description": "Soooooo you're an alchoholic"
+        },
+        "Drink-This-If-You-Are-Hot Drink", {
+            "name": "Drink-This-If-You-Are-Hot Drink",
+            "ingredients": ["Hot Water", "Chocolate", "More Chocolate"],
+            "description": "This is pretty good if you are hot to make you hotter"
+        }
+    ]
+}
