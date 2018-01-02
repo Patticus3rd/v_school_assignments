@@ -1,12 +1,12 @@
 const rs = require("readline-sync");
 
-console.log("You are in a locked room.\nThere is a door, a hidden key and a hole in the wall.");
+console.log("You're walking in the woods...Theres no one around and your phone is dead Out of the corner of your eye, you spot him");
 
 let inv = [];
 let isAlive = true;
 
 while(isAlive) {
-    let userinput = rs.question("What would you like to do? ");
+    let userinput = rs.question("Its Shia LaBeouf!!!! ");
     userinput = userinput.toLowerCase();
 
     if(userinput.includes("hole") && userinput.includes("put")) {
@@ -20,7 +20,7 @@ while(isAlive) {
         } else {
             console.log("Sorry you dont have the key you idiot.");
         }
-    } else if(userinput.includes("take") && userinput.includes("key")) {
+    } else if(userinput.includes("find") && userinput.includes("key")) {
         console.log("You found the key but is it the key?");
         inv.push("key");
     } else if(userinput.includes("look")) {
