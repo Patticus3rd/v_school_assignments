@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
