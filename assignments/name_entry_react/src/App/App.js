@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Header from './InputBox/Header/Header.js';
-import InputBox from './InputBox/InputBox';
+import InputBox from './InputBox';
 
 
 function App(props) {

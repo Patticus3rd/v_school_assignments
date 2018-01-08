@@ -19,7 +19,6 @@ class App extends Component {
     generateHeroes(){
       return superheros.map((hero, index) => {  
         return <SuperHero key= {index}{...hero} index={index} display={this.display} />
-   
       })
     }
 

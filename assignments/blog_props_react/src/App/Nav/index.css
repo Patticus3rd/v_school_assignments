@@ -1,0 +1,8 @@
+.navbar {
+    align-content: right;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: flex-end;
+}
