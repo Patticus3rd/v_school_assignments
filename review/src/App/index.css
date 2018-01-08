@@ -1,0 +1,9 @@
+.title {
+    color: indianred;
+    text-align: center;
+}
+
+.cardItem {
+    display: flex;
+    color: indianred;
+}
