@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.wrapper{
+    display: grid;
+    height: 100px;
+    width: 100px;
+}
+
+.flexsomething {
+    display: flex;
+    flex-flow: row;
+}
