@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './';
+import Card from './Card';
 import axios from 'axios';
 const hlURL = "http://api.vschool.io:6543/hitlist.json"
 
@@ -14,12 +14,10 @@ class Characters extends Component {
     componentDidMount() {
         axios.get(hlURL)
             .then((response) => {
-                console.log(response)
-                let { results } = response.data
+                let { data } = response;
                 this.setState({
-                    characters: results
+                    characters: data
                 })
-
             })
             .catch((err) => {
                 this.setState({
@@ -28,13 +26,12 @@ class Characters extends Component {
             })
     }
 
-
     render() {
         let { characters } = this.state;
         return (
             <div>
-                {characters.map((character, i) => {
-                    return <Card key={i}{...character}></Card>
+                {characters.map((char, i) => {
+                    return <Card key={i}{...char} ></Card>
                 })}
             </div>
         )

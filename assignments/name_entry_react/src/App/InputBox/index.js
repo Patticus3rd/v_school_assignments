@@ -33,7 +33,7 @@ class InputBox extends Component {
 
 
     render() {
-        console.log(this.state)
+
         let { inputs, things } = this.state;
         return (
             <div className="centerstuff">
