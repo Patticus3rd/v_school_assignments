@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react'
 import Loading from '../../shared/Loading';
 import axios from 'axios';
+import FormPage from '../../shared/FormPage';
 let todoItemUrl = "https://api.vschool.io/patrickseiuli/todo/"
 
 
@@ -10,9 +11,12 @@ class ToDoItem extends Component {
         super(props)
         this.state = {
             todo: {},
-            loading: true
+            loading: true,
+            displayForm: false,
         }
         this.removeItem = this.removeItem.bind(this)
+        this.toggleDisplay = this.toggleDisplay.bind(this)
+        this.editTodo = this.editTodo.bind(this)
     }
 
     componentDidMount() {
@@ -47,10 +51,34 @@ class ToDoItem extends Component {
                 history.push("/");
             })
     }
+
+    toggleDisplay(){
+        this.setState((prevState) => {
+            return {
+                displayForm: !prevState.displayForm
+            }
+        })
+    }
+
+    editTodo(todo){
+        let { id } = this.props.match.params;
+        axios.put(todoItemUrl + id, todo)
+        .then((response) => {
+            let { data } = response;
+            this.setState({
+                todo: data,
+                displayForm: false
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
     render() {
-        let { todo, loading } = this.state;
+        let { todo, loading, displayForm } = this.state;
         let { title, description, price, completed, imgUrl } = todo;
         let style = { backgroundImage: `url(${imgUrl})` };
+        let formStyle = { display: displayForm ? "initial" : "none"  }
         return (
             loading ?
                 <Loading></Loading>
@@ -60,7 +88,11 @@ class ToDoItem extends Component {
                     <h2>Price: {price}</h2>
                     <p>Completed: {completed}</p>
                     <p>{description}</p>
-                    <Button onClick={this.removeItem}></Button>
+                    <Button onClick={this.removeItem}>X</Button>
+                    <Button onClick={this.toggleDisplay}>Edit</Button>
+                    <div style={formStyle}>
+                    <FormPage {...todo} submit={this.editTodo} />
+                    </div>
                 </div>
         )
     }

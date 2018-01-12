@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Checkbox, Label, Message } from 'semantic-ui-react';
+import { Form, Button, Checkbox } from 'semantic-ui-react';
 
 class FormPage extends Component {
     constructor(props) {
@@ -65,7 +65,7 @@ class FormPage extends Component {
                     <Form.Input onChange={this.handleChange} value={imgUrl} name="imgUrl" type="text" placeholder="imgUrl" />
                     <label htmlFor="completed">
                         Completed:
-                <Form.Input onChange={this.handleChange} name="completed" checked={completed} id="completed" type="checkbox" />
+                <Checkbox onChange={this.handleChange} name="completed" checked={completed} id="completed" type="checkbox" />
                     </label>
                     <Button>Submit</Button>
                 </Form>
