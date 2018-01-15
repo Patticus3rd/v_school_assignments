@@ -1,7 +1,9 @@
 const count = (prevCount = 0, action) => {
     switch(action.type){
         case "HANDLE_COUNT":
-            return action.amount + prevCount;
+        //do any logic we want here
+            let total =  prevCount + action.amount;
+            return total < 0 ? prevCount : total;
         default:
             return prevCount;
     }
@@ -11,7 +13,7 @@ const count = (prevCount = 0, action) => {
 export const handleCount = (amount) => {
     return {
         type: "HANDLE_COUNT",
-        amount
+        amount: amount
     }
 }
 
