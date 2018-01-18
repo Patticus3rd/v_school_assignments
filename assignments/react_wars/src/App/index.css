@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+.page-wrapper {
+    display: flex;
+    width: 100vh;
+    height: 100vh;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-flow: column;
+    border-color: black;
+    border-style: solid;
+}
+
+.sidelinks {
+    font-size: 30px;
+    line-height: 50px;
+}
