@@ -1,0 +1,1 @@
+var thoughts = "I want to"

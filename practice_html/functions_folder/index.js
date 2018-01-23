@@ -1,7 +1,7 @@
-const person = {
-    name = "Justin",
-    age = 38,
-    occupation = "ghost",
-    friend = ["Mona", "Sriek"]
+module.exports = function(){
+    console.log("Hello World");
 }
+
+const greet = require("./greet1");
+greet()
 

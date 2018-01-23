@@ -6,26 +6,25 @@ let inv = [];
 let isAlive = true;
 
 while(isAlive) {
-    let userinput = rs.question("Its Shia LaBeouf!!!! ");
+    let userinput = rs.question("Its Shia LaBeouf!!!! What do you do?! Run Hide or Look in you bag for a Knife? ");
     userinput = userinput.toLowerCase();
-
-    if(userinput.includes("hole") && userinput.includes("put")) {
+    if(userinput.includes("hide") || userinput.includes("run")) {
         console.log("Sorry... um ... you died");
         isAlive = false;
-        console.log("THE CAKE IS A LIE");
-    } else if(userinput.includes("open") && userinput.includes("door")) {
-        if(inv.includes("key")) {
-            console.log("Congrats you WIN the game!! Yo'ur going to Disneyland!!");
+        console.log("You let Shia Labeouf Win");
+    } else if(userinput.includes("look") && userinput.includes("bag")) {
+        if(inv.includes("knife")) {
+            console.log("Good Job! Shia saw you pull the knife out.  He ran away!");
             break;
         } else {
-            console.log("Sorry you dont have the key you idiot.");
+            console.log("Sorry you dont have the knife you idiot.");
         }
-    } else if(userinput.includes("find") && userinput.includes("key")) {
-        console.log("You found the key but is it the key?");
-        inv.push("key");
+    } else if(userinput.includes("look") || userinput.includes("bag")) {
+        console.log("You find yourself back in time with a heavy metal object protuding out of your bag");
+        inv.push("knife");
     } else if(userinput.includes("look")) {
         console.log("You are in a locked room.\nThere is a door, a hidden key and a hole in the wall.");        
     } else {
-        console.log("Yo'ur idiot? What are you new? That isnt one of the commands");
+        console.log("Thats not one of the commands hurry and pick something else!");
     }
 }
