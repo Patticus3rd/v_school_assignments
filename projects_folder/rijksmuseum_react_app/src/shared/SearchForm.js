@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'semantic-ui-react';
-import axios from 'axios';
+import { Form, Button } from 'semantic-ui-react';
+
 
 
 class SearchForm extends Component{
