@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Card  from '../Collections/Card/index.js';
+import ImageCard  from '../Collections/ImageCard/index.js';
 
 
 
@@ -11,7 +11,7 @@ class Collections extends Component {
     constructor(props){
         super(props);
         this.state = {
-            collections: []
+            collections: [],
         }
     }
 
@@ -30,7 +30,7 @@ class Collections extends Component {
         return(
             <div>
                 {collections.map((collection, i) => {
-                    return <Card key={i}{...collection}></Card>
+                    return <ImageCard key={i}{...collection}></ImageCard>
                 })}
             </div>
         )
