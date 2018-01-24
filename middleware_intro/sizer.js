@@ -1,4 +1,6 @@
-module.exports = (req, res, next) => {
-    console.log("SIZZEDDDDDDDD")
-    next()
+module.exports = (database) => {
+    return (req, res, next) => {
+        res.size = database.length;
+        next()
+    }
 }
