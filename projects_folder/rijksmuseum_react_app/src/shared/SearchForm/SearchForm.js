@@ -1,31 +1,58 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
+import { getArt } from '../../redux/art.js';
 
 
 
 
-class SearchForm extends Component{
-    constructor(props){
+class SearchForm extends Component {
+    constructor(props) {
         super(props);
         this.state = {
-            culture: "",
-            century: ""
+            inputs: {
+                culture: "",
+                century: ""
+            }
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    render(){
-        return(
+    handleChange(e) {
+        let { name, value } = e.target;
+        this.setState((prevState) => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [name]: value
+                }
+            }
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let { getArt, push } = this.props;
+        getArt(this.state.inputs)
+    }
+
+    render() {
+        let { culture, century } = this.state.inputs
+        return (
             <div>
-                <Form>
-                    <Form.Field>
-                        <Form.Input placeholder="search"/>
-                        <Button>Click Me</Button>
-                    </Form.Field>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Field>
+                            <Form.Input onChange={this.handleChange} name="culture" value={culture} placeholder="culture" />
+                            <Form.Input onChange={this.handleChange} name="century" value={century} placeholder="century" />
+                            <Button>Click Me</Button>
+                        </Form.Field>
+                    </Form.Group>
                 </Form>
             </div>
         )
     }
 }
 
-export default SearchForm;
+export default connect(null, { getArt })(SearchForm);

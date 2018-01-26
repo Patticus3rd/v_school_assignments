@@ -7,7 +7,7 @@ import store from "./redux/";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>

@@ -9,9 +9,9 @@ import './index.css';
 function NavBar(props) {
     return (
         <div class="navbar-container">
-            <Link to="/">Home</Link>
-            <Link to="/exhibitions" component={Exhibitions}>Exhibitions</Link>
-            <Link to="/collections" component={Collections}>Collections</Link>
+            <Link className="text-link" to="/">Home</Link>
+            <Link className="text-link" to="/exhibitions" component={Exhibitions}>Exhibitions</Link>
+            <Link className="text-link" to="/collections" component={Collections}>Collections</Link>
         </div>
     )
 }

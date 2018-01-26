@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Metamorphous');
-
 .navbar-container {
     display: flex;
     flex-flow: row;
@@ -7,12 +6,16 @@
     font-family: 'Metamorphous', cursive;
     font-size: 20px;
     line-height: 50px;
-    border-bottom: solid;
-    /* background-color: #fde0e0;	 */
+    border: 20px groove #eeccb0;
+    background-color: #fde0e0;
 }
 
 .header-font {
     display: flex;
     justify-content: center;
     font-family: 'Metamorphous', cursive;
+}
+
+.text-link {
+    color: #dfcb8f
 }

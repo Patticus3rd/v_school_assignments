@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ImageCard  from '../Collections/ImageCard/index.js';
+import SearchForm from '../../shared/SearchForm/SearchForm';
 
 
 
@@ -29,6 +30,7 @@ class Collections extends Component {
        let { collections } = this.state;
         return(
             <div>
+                <SearchForm />
                 {collections.map((collection, i) => {
                     return <ImageCard key={i}{...collection}></ImageCard>
                 })}
