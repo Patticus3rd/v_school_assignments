@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, Card } from 'semantic-ui-react';
 
 function ImageCard(props) {
-    let { primaryimageurl, title, copyright, description } = props;
+    let { primaryimageurl, title, dated, creditline } = props;
     return (
         <Card>
             <Image src={primaryimageurl} />
@@ -10,11 +10,11 @@ function ImageCard(props) {
                 <Card.Header>{title}</Card.Header>
                 <Card.Meta>
                     <span className='copyright'>
-                        Property of: {copyright}
+                        Dated: {dated}
                     </span>
                 </Card.Meta>
                 <Card.Description>
-                    {description}
+                    {creditline}
                 </Card.Description>
             </Card.Content>
         </Card>

@@ -4,10 +4,10 @@
     flex-flow: row;
     justify-content: space-around;
     font-family: 'Metamorphous', cursive;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 50px;
-    border: 20px groove #eeccb0;
-    background-color: #fde0e0;
+    border: 20px groove #f9d2bd;
+    background-color:		#fde0e0;
 }
 
 .header-font {
@@ -17,5 +17,7 @@
 }
 
 .text-link {
-    color: #dfcb8f
+    color: #dfcb8f;
+    border-image-source: url('../../shared/images/border.jpg');
+    border-bottom: solid;
 }

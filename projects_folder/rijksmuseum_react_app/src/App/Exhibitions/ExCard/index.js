@@ -4,11 +4,11 @@ import './index.css'
 
 
 function ExCard(props) {
-    let { primaryimageurl, venues, url, title, begindate, enddate, images } = props;
+    let { images, venues, url, title, begindate, enddate } = props;
     return (
-        <div>
+        
             <Card className="xbtGroup">
-                <Image src={primaryimageurl} />
+                <Image src={images[0].baseimageurl} />
                 <Card.Content>
                     <a href={url}><Card.Header>{title}</Card.Header></a>
                     <Card.Meta>{begindate} - {enddate}</Card.Meta>
@@ -21,7 +21,7 @@ function ExCard(props) {
                     </a>
                 </Card.Content>
             </Card>
-        </div>
+        
     )
 }
 

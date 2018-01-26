@@ -13,7 +13,7 @@ let art = (state = { loading: true, data: [] }, action) => {
     }
 }
 
-let artUrl = "https://api.harvardartmuseums.org/object?apikey=040e0810-008c-11e8-87d8-754fcee58be2?";
+let artUrl = "https://api.harvardartmuseums.org/object?apikey=040e0810-008c-11e8-87d8-754fcee58be2";
 
 export const getArt = (queryObj) => {
     // convert object into query stiring and append it to url;

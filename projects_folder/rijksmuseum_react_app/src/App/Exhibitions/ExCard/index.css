@@ -2,13 +2,16 @@
     box-sizing: border-box;
     margin: 0;
 }
+
 .container {
     display: flex;
     justify-content: space-around;
     flex-flow: row;
     flex-wrap: wrap;
-    padding-top: 150px;
+    border: 80px groove #c98a8c;
+    margin-top: 50px;
 }
+
 .xbtGroup {
     display: flex;
 }

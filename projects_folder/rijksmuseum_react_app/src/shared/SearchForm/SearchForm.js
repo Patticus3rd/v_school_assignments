@@ -11,8 +11,7 @@ class SearchForm extends Component {
         super(props);
         this.state = {
             inputs: {
-                culture: "",
-                century: ""
+                key: ""
             }
         }
         this.handleChange = this.handleChange.bind(this)
@@ -38,14 +37,14 @@ class SearchForm extends Component {
     }
 
     render() {
-        let { culture, century } = this.state.inputs
+        let { key } = this.state.inputs
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Field>
-                            <Form.Input onChange={this.handleChange} name="culture" value={culture} placeholder="culture" />
-                            <Form.Input onChange={this.handleChange} name="century" value={century} placeholder="century" />
+                            <Form.Input onChange={this.handleChange} name="key" value={key} placeholder="Search Here!" />
+                            {/* <Form.Input onChange={this.handleChange} name="century" value={century} placeholder="century" /> */}
                             <Button>Click Me</Button>
                         </Form.Field>
                     </Form.Group>
