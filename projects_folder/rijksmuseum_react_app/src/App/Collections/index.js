@@ -4,7 +4,7 @@ import ImageCard  from '../Collections/ImageCard/index.js';
 
 
 
-const baseURL = "https://api.harvardartmuseums.org/image?apikey=040e0810-008c-11e8-87d8-754fcee58be2"
+const baseURL = "https://api.harvardartmuseums.org/object?apikey=040e0810-008c-11e8-87d8-754fcee58be2&classification=Paintings&culture=European&centry=14thcenturyBCE"
 
 
 class Collections extends Component {

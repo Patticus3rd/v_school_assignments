@@ -11,10 +11,6 @@ class SearchForm extends Component{
         }
     }
 
-    
-
-
-
     render(){
         return(
             <div>
