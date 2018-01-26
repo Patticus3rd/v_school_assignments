@@ -1,4 +1,5 @@
 import { queryStringConverter } from "../utils";
+import axios from 'axios';
 
 let art = (state = { loading: true, data: [] }, action) => {
     switch (action.type) {
@@ -18,12 +19,13 @@ export let getArt = (queryObj) => {
     // convert object into query stiring and append it to url;
     let url = queryStringConverter(queryObj, artUrl);
     return dispatch => {
-        axios.get(url);
-        .then((response) => {
-            
-        })
-
+        axios.get(url)
+        let { records } = response.data
+        .then((response) => dispatch({
+            type: "GET_ART",
+            data: records
+        }))
     }
 }
 
-export default museum;
+export default art;

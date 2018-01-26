@@ -13,7 +13,7 @@
     flex-wrap: wrap;
     flex-flow: column;
     font-family: 'Metamorphous', cursive;
-    background:  url('../images/goldenratio.png') no-repeat center center fixed, url('../images/harvardarts.jpg') no-repeat center center fixed;
+    background:  url('../images/goldenratio.png') no-repeat center, url('../images/harvardarts.jpg') no-repeat center center fixed;
     background-size: 100%;
     
 }

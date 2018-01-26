@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import connect from 'react-redux';
+
 
 
 
@@ -7,7 +9,8 @@ class SearchForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            inputs: ""
+            culture: "",
+            century: ""
         }
     }
 
