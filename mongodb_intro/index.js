@@ -1,23 +1,17 @@
-let MongoClient = require('mongodb').MongoClient;
+const express = require('express')
+const app = express();
+const mongoose = require('mongoose');
+const foodRoutes = require('./routes/food');
 
-let url = "mongodb://localhost:27017/myProject";
 
-MongoClient.connect(url, (err, database) => {
-    if(err) console.log(err);
-    console.log("connected to db");
-    //insert something into database before finding it
-    //insert.Many means that we have to insert an array of things
-    let db = database.db("myProject");
-    let collection = db.collection("newCollection");
-    collection.insertMany([ {a: 1}, {b: 2}, {c: 3} ], (err, result) => 
-    {
-        if(err)console.error(err)
-        console.log(result)
-    });
-    //find a specific collection here
-    collection.find({}, (err, result ) => {
-        if(err) console.log(err);
+mongoose.connect("mongodb://localhost:/food", (err) => {
+    if(err) throw err;
+    console.log('Connected to the database');
+});
 
-    })
-    database.close();
+app.use(bodyParser)
+app.use('food', foodRoutes);
+
+app.listen(8080, () => {
+    console.log("Server is running on port 8080")
 });
