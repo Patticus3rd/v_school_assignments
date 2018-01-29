@@ -20,4 +20,4 @@ const pokemonSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Pokemon', pokemonSchema)
+module.exports = mongoose.model('Store', pokemonSchema)
