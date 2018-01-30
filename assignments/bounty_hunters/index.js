@@ -27,6 +27,11 @@ app.post("/bounties", (req, res) => {
     })
 })
 
+app.delete('./bounties/:id', (req, res) => {
+    
+    database.pop()
+})
+
 app.listen(port, () => {
     console.log("Listening on port" + port)
 })
