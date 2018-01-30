@@ -1,23 +1,19 @@
 const mongoose = require('mongoose');
 
-const pokemonSchema = new mongoose.Schema({
+const inventorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    elementType: {
+    aisle: {
         type: String,
         required: true,
     },
-    inAnime: {
+    isSold: {
         type: Boolean,
         default: false,
     },
-    abilities: [String],
-    generation:{
-        type: String,
-        required: true
-    }
+    description: [String]
 })
 
-module.exports = mongoose.model('Store', pokemonSchema)
+module.exports = mongoose.model('Inventory', inventorySchema)
