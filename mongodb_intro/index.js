@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
 const foodRoutes = require('./routes/food');
+const bodyParser = require('body-parser')
 
 
 mongoose.connect("mongodb://localhost:/food", (err) => {
@@ -9,7 +10,7 @@ mongoose.connect("mongodb://localhost:/food", (err) => {
     console.log('Connected to the database');
 });
 
-app.use(bodyParser)
+app.use(bodyParser.json())
 app.use('food', foodRoutes);
 
 app.listen(8080, () => {
