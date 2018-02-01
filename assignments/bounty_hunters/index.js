@@ -1,36 +1,25 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const uuid = require('uuid');
+const cors = require('cors')
 
-const database = require('./database.js');
+const bountyRoute = require('./routes/bounties.js');
 
 const app = express();
 let port = 8080;
 
+//middleware
 app.use(bodyParser.json())
+app.use(cors())
 
-app.get("/", (req, res) => {
-    res.send(database);
+//routes
+app.use('/bounties', bountyRoute);
+
+//connect mongoose to db
+mongoose.connect('mongodb://localhost:27017', () => {
+    console.log('connected to mongodb')
 })
 
-app.get("/bounties", (req, res) => {
-    res.send(database)
-})
-
-app.post("/bounties", (req, res) => {
-    let newBounty = req.body;
-    newBounty._id = uuid();
-    database.push(newBounty);
-    res.send({
-        msg: "Bounty Added",
-        data: newBounty
-    })
-})
-
-app.delete('./bounties/:id', (req, res) => {
-    
-    database.pop()
-})
 
 app.listen(port, () => {
     console.log("Listening on port" + port)

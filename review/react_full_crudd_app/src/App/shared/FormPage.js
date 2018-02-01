@@ -29,8 +29,6 @@ class FormPage extends Component {
                 completed: completed || "",
             }
         })
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e) {

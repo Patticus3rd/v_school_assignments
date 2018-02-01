@@ -38,9 +38,8 @@ class TodoList extends Component {
     addTodo(todo){
         axios.post(todoUrl, todo)
         .then((response) => {
-            let { data } = response;
             this.setState((prevState) => {
-                let newTodos = [...prevState.todos, data];
+                let newTodos = [...prevState.todos, response.data];
                 return {
                     todos: newTodos
                 }
