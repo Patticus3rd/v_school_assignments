@@ -14,7 +14,7 @@ class BountyForm extends Component {
                 lastName: lastName || "",
                 living: living || true,
                 bountyAmount: bountyAmount || "",
-                force: force || ""
+                force: force || "Sith"
             }
         }
         this.handleChange = this.handleChange.bind(this);
@@ -41,7 +41,7 @@ class BountyForm extends Component {
                 lastName: lastName || "",
                 living: living || true,
                 bountyAmount: bountyAmount || "",
-                force: force || ""
+                force: force || "Sith"
             }
         })
     }

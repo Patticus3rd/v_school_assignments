@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import BountyCard from './BountyCard';
-import BountyForm from '../../shared/BountyForm.js';
+import BountyForm from './BountyForm';
 
 import axios from 'axios';
 
-const btyURL = "http://localhost:8080/bounties"
+const btyURL = "http://localhost:8080/bounties/"
 
 class Bounties extends Component {
     constructor(props){
@@ -16,6 +15,7 @@ class Bounties extends Component {
             err: false,
         }
         this.addBounty = this.addBounty.bind(this);
+        this.removeBounty = this.removeBounty.bind(this);
     }
 
     componentDidMount(){
@@ -23,7 +23,7 @@ class Bounties extends Component {
         .then((response) => {
             console.log(response)
             this.setState({
-                bounties: response.data
+                bounties: response.data,
             })  
         })
         .catch((err) => {
@@ -49,13 +49,27 @@ class Bounties extends Component {
         })
     }
 
+    removeBounty(id){
+        axios.delete(btyURL + id)
+        .then((response) => {
+            this.setState((prevState) => {
+                return {
+                    bounties: prevState.bounties.filter((bounty) => {
+                         return bounty._id !== id
+                    })
+                }
+            })
+        })
+    }
+
+
     render(){
         let { bounties } = this.state;
         return(
             <div>
                 <BountyForm submit={this.addBounty} clear/>
             {bounties.map((bounty, index) => {
-                return <BountyCard key={index}{...bounty}></BountyCard>
+                return <BountyCard removeBounty={this.removeBounty} key={index}{...bounty}></BountyCard>
             })}
             </div>
         )

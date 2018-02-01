@@ -1,5 +1,5 @@
 import React from 'react'
-import Bounties from './Bounties';
+import Bounties from './BountyList/index';
 
 function App() {
     return (
