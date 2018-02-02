@@ -26,6 +26,7 @@ class DecorList extends Component {
     }
 
     deleteItem(i) {
+        debugger
        this.setState((prevState) => {
            let newItems = [...prevState.items];
            newItems.splice(i, 1)

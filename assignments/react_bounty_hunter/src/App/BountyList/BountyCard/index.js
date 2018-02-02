@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
+import EditForm from './EditForm';
 
 
 function BountyCard(props){
- let { lastName, firstName, living, bountyAmount, force, removeBounty  } = props;
+ let { lastName, firstName, living, bountyAmount, force, index, removeBounty  } = props;
         return (
             <div>
                 <Card>
@@ -16,7 +17,8 @@ function BountyCard(props){
                         </span>
                     </Card.Meta>
                     <Card.Description>Target is currently {force}</Card.Description>
-                    <Button color='red' onClick={ ()=> removeBounty()}>Delete</Button>
+                    <Button color='red' onClick={ ()=> removeBounty(index)}>Delete</Button>
+                    <EditForm {...props}></EditForm>
                 </Card>
             </div>
         )
