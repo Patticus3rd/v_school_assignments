@@ -27,3 +27,4 @@ const demSchema = new Schema({
 })
 
 module.exports = mongoose.model('Democrat', demSchema)
+Schema.plugin(random, { path: 'r' });

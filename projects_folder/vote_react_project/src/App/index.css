@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+    margin: 0
+}
+
+.app-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: baseline;
+}

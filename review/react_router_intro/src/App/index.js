@@ -8,7 +8,7 @@ import Header from './Header';
 
 function App(props) {
     return (
-        <div>
+        <div class="app-wrapper">
             <NavBar />
             <Switch>
                 <Route exact path="/" component={Home} />

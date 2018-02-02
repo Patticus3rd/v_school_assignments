@@ -1,5 +1,6 @@
 const express = require('express');
 const repsRoutes = express.Router();
+const random = require('mongoose-random');
 
 const Reps = require('../models/reps');
 
@@ -9,6 +10,13 @@ repsRoutes.get('/', (req, res) => {
         return res.send(rep)
     })
 })
+
+repsRoutes.get('/random', (req, res) => {
+    Reps.findRandom((err, rep) => {
+        console.log(rep)
+    })
+})
+
 
 repsRoutes.post('/', (req, res) => {
     const newArticle = new Reps(req.body);
