@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Article from './Article';
 
 const repsURL = "http://localhost:9000/republicans"
 
@@ -23,9 +24,12 @@ class Dems extends Component {
         })
     }
     render(){
+        let { articles } = this.state;
         return(
             <div>
-                test
+                {articles.map((article, i) => {
+                    return <Article key={i}{...article} />
+                })}
             </div>
         )
     }

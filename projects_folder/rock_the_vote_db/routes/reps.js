@@ -11,11 +11,11 @@ repsRoutes.get('/', (req, res) => {
     })
 })
 
-repsRoutes.get('/random', (req, res) => {
-    Reps.findRandom((err, rep) => {
-        console.log(rep)
-    })
-})
+// repsRoutes.get('/random', (req, res) => {
+//     Reps.findRandom((err, rep) => {
+//         console.log(rep)
+//     })
+// })
 
 
 repsRoutes.post('/', (req, res) => {
