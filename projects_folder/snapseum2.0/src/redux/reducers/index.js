@@ -5,7 +5,7 @@ import snapcodes from './snapcodes';
 
 const rootReducer = combineReducers({
     snapcodes,
-    router: routerReducer
+    routing: routerReducer
 });
 
 export default rootReducer;
