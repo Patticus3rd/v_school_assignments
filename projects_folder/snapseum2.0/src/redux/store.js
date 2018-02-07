@@ -1,17 +1,7 @@
-import { createStore, compose } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
 
-//import the root reducer
-import rootReducer from './reducers/index.js';
-
-//create an object for the default data
-const defaulState = {
-    snapcodes,
-};
-
-const store = createStore(rootReducer, defaulState);
-
-export const history = syncHistoryWithStore(browserHistory, store);
+const store = createStore(rootReducer, {}, applyMiddleware(thunk));
 
 export default store;

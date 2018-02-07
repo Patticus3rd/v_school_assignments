@@ -1,11 +1,14 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 
-function App() {
+import UploadForm from './UploadForm';
+
+function App(props) {
     return (
-        <Switch>
-            <Route/>
-        </Switch>
+        <div>
+            <UploadForm add />
+            
+        </div>
     )
 }
 

@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-
-import snapcodes from './snapcodes';
+import flash from './flash';
 
 const rootReducer = combineReducers({
-    snapcodes,
-    routing: routerReducer
-});
+     flash
+})
 
 export default rootReducer;

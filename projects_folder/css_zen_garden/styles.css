@@ -13,7 +13,7 @@
 }
 
 .author {
-  background: url("./images/koi.jpg"), url("./contours@2x.png");
+  background: url("./images/koi.jpg"), url("./images/contours.png");
   height: 222px;
   font-size: 1.1em;
 }
@@ -48,7 +48,7 @@
 }
 
 .bamboo {
-  background: url("./bamboo.png"), url("./contours@2x.png"), rgba(192, 218, 203, .8);
+  background: url("./images/bamboo.png"), url("./images/contours.png"), rgba(192, 218, 203, .8);
   background-repeat: repeat;
   background-attachment: scroll, fixed, fixed;
   background-size: cover, 40% auto, auto;
@@ -104,7 +104,7 @@
 .header {
   display: flex;
   content: "";
-  background-image: url("contours@2x.png"), url("huntington.jpg");
+  background-image: url("./images/contours.png"), url("./images/huntington.jpg");
   flex-direction: column;
   height: 250px;
   background-attachment: fixed, scroll;
@@ -217,7 +217,7 @@ p {
 }
 
 .site_map {
-  background: url("./bamboo.png"), url("contours@2x.png"), rgba(192, 218, 203, .8);
+  background: url("./images/bamboo.png"), url("./images/contours.png"), rgba(192, 218, 203, .8);
   background-repeat: repeat;
   background-attachment: scroll, fixed, fixed;
   background-size: cover, 40% auto, auto;
@@ -323,13 +323,20 @@ p {
   .link-container {
     background-color: rgba(255, 255, 255, .2);
     width: 70px;
+    
   }
   #arrow {
+    color: white;
+    font-family: linkyfont;
+    opacity: .8;
     position: absolute;
-    left: 35px;
-    top: 140px;
-    width: 40px;
-  }
+    top: 210px;
+    margin-left: 90%;
+}
+.arrow-container {
+  background-color: rgba(255, 255, 255, .2);
+  width: 70px;
+}
   .page-wrapper {
     display: flex;
     flex-direction: column;
@@ -356,7 +363,7 @@ p {
   .design-author {
     margin-top: 0px;
   }
-  .download {}
+ 
   .enso {
     height: 125px;
     width: 125px;
@@ -371,7 +378,7 @@ p {
     font-size: 4.5em;
   }
   .header {
-    background-image: url("contours@2x.png"), url("huntington.jpg");
+    background-image: url("./images/contours@2x.png"), url("./images/huntington.jpg");
     display: flex;
     flex-direction: row;
     height: 300px;

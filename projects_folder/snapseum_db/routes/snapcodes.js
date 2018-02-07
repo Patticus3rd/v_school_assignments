@@ -1,7 +1,16 @@
 const express = require('express');
 const snapRoutes = express.Router();
+const fs = require('fs');
 
+//GRID FS
+let Grid = require('gridfs-stream')
+let conn = mongoose.connection;
+Grid.mongo = mongoose.mongo;
+let gfs;
+//MODEL
 const snapCodes = require('../models/snapcodes.js');
+
+
 
 snapRoutes.get('/', (req, res) => {
     snapCodes.find((err, snap) => {
@@ -13,8 +22,10 @@ snapRoutes.get('/', (req, res) => {
 snapRoutes.post('/', (req, res) => {
     const newSnap = new snapCodes(req.body);
     newSnap.save((err) => {
-        if(err) res.status(500).send(err);
-        return res.send(newSnap)
+        if(err) {
+            return res.send(newSnap);
+        }
+        res.json({ message: 'Snapcode Uploaded!'});
         })
 })
 

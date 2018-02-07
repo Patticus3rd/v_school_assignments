@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const logger = require('morgan');
 
 //import Routes
 const snapRoutes = require('./routes/snapcodes.js');
@@ -14,6 +15,7 @@ const port = 9000;
 //middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(logger())
 
 //routes
 app.use('/snapcodes', snapRoutes);
