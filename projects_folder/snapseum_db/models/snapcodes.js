@@ -6,10 +6,6 @@ const codeSchema = new Schema({
         type: String,
         required: true
     },
-    codeSource: {
-        type: String,
-        required: true
-    },
     codeArtist: {
         type: String,
         required: true

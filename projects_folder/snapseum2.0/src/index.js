@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-//dotenv
 import { dotenv } from 'dotenv';
-
-import store from './redux/store.js';
 import App from './App';
+//redux
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
+
+//create store
+const store = createStore();
+
+
+//create redux store -> reducers -> actions | applyMiddleware(thunk)this will help us maka axios calls 
+
 
 ReactDOM.render(
     <Provider store={store}>

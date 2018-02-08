@@ -2,11 +2,6 @@ const express = require('express');
 const snapRoutes = express.Router();
 const fs = require('fs');
 
-//GRID FS
-let Grid = require('gridfs-stream')
-let conn = mongoose.connection;
-Grid.mongo = mongoose.mongo;
-let gfs;
 //MODEL
 const snapCodes = require('../models/snapcodes.js');
 

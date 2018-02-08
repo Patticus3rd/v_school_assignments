@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import { firebaseConnect } from 'react-redux-firebase';
+
+import { map } from 'lodash';
 import axios from 'axios'
 import { handleUpload } from '../../redux/actions/files.js';
 import { connect } from 'react-redux';
