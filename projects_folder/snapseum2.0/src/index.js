@@ -6,16 +6,18 @@ import App from './App';
 //redux
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import store from './redux/store.js';
-
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import  rootReducer  from './redux/reducers';
 //create store
-const store = createStore()
-;
-//provide the store to react
+const store = createStore(rootReducer, applyMiddleware(thunk));
+// provide the store to react
 
 
 
-//create redux store -> reducers -> actions | applyMiddleware(thunk)this will help us maka axios calls 
+//create redux store -> reducers -> actions/action-types ->
+// reducers return state and given to the store and combined by the store as a 
+//single reducer | applyMiddleware(thunk)this will help us maka axios calls 
 
 
 ReactDOM.render(

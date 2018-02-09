@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
-import { firebaseConnect } from 'react-redux-firebase';
-
-import { map } from 'lodash';
 import axios from 'axios'
-import { handleUpload } from '../../redux/actions/files.js';
-import { connect } from 'react-redux';
+
 
 class FileUpload extends Component {
     constructor(props) {
@@ -22,7 +18,7 @@ class FileUpload extends Component {
     onDrop = (files) => {
         const { dispatch } = this.props;
         this.toggleUploading();
-        dispatch(handleUpload(files[0], this.toggleUploading));
+        // dispatch(handleUpload(files[0], this.toggleUploading));
     }
 
     render() {
@@ -38,4 +34,4 @@ class FileUpload extends Component {
     }
 }
 
-export default connect()(FileUpload);
+export default FileUpload;

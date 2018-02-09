@@ -5,7 +5,8 @@ import _ from 'lodash';
 //file import
 import FileUpload from '../Files';
 //redux imports
-import { handleUpload } from '../../redux/actions/files.js';
+import { connect } from 'react-redux';
+import { getFilters, saveFilter } from '../../redux/actions/filterAction.js';
 
 class UploadForm extends Component {
     constructor(props) {
@@ -32,11 +33,11 @@ class UploadForm extends Component {
     })};
 
     renderPosts() {
-        return _.map(this.state.posts,(post, key) => {
+        return _.map(this.props.posts,(post, key) => {
             return (
             <div key={key}>
-                <h3>{post.codeName}</h3>
-                <p>{post.codeSource}</p>
+                <h3>{post.artist}</h3>
+                <p>{post.title}</p>
             </div>)
         })
     }
@@ -71,7 +72,7 @@ class UploadForm extends Component {
                     <Form.Group>
                         <Form.Input label="Filter Name" onChange={this.handleChange} name="codeName" value={codeName} />
                         <Form.Input label="Filter Artist" onChange={this.handleChange} name="codeArtist" value={codeArtist} />
-                        <FileUpload value={codeSource} />
+                        {/* <FileUpload value={codeSource} /> */}
                         <Button>Publish!</Button>
                     </Form.Group>
                 </Form>
@@ -80,6 +81,13 @@ class UploadForm extends Component {
             </div>
         )
     }
+};
+
+
+function mapStateToProps(state, ownProps){
+    return {
+        filters: state.filters
+    }
 }
 
-export default UploadForm;
+export default connect(mapStateToProps, {getFilters, saveFilter} )(UploadForm);
