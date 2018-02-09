@@ -9,7 +9,10 @@ import { Provider } from 'react-redux';
 import store from './redux/store.js';
 
 //create store
-const store = createStore();
+const store = createStore()
+;
+//provide the store to react
+
 
 
 //create redux store -> reducers -> actions | applyMiddleware(thunk)this will help us maka axios calls 
