@@ -1,93 +1,55 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
-import { database } from '../../firebase';
-import _ from 'lodash';
-//file import
-import FileUpload from '../Files';
-//redux imports
-import { connect } from 'react-redux';
-import { getFilters, saveFilter } from '../../redux/actions/filterAction.js';
+import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
 
 class UploadForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputs: {
-                codeName: "",
-                codeSource: "",
-                codeArtist: "",
-                favorites: false,
-            },
-            posts: {}
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderPosts = this.renderPosts.bind(this);
-    }
-    //need to us .on with value as a paramter
-    componentDidMount(){
-        database.on('value', preview => {
-            this.setState({
-                posts: preview.val()
-            })
-    })};
+  state = {
+    username: '',
+    avatar: '',
+    isUploading: false,
+    progress: 0,
+    avatarURL: ''
+  };
 
-    renderPosts() {
-        return _.map(this.props.posts,(post, key) => {
-            return (
-            <div key={key}>
-                <h3>{post.artist}</h3>
-                <p>{post.title}</p>
-            </div>)
-        })
-    }
+  handleChangeUsername = (event) => this.setState({username: event.target.value});
+  handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+  handleProgress = (progress) => this.setState({progress});
+  handleUploadError = (error) => {
+    this.setState({isUploading: false});
+    console.error(error);
+  }
+  handleUploadSuccess = (filename) => {
+    this.setState({avatar: filename, progress: 100, isUploading: false});
+    firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
+  };
 
-    handleChange(e) {
-        let { name, value } = e.target;
-        this.setState((prevState) => {
-            return {
-                inputs: {
-                    ...prevState.inputs,
-                    [name]: value
-                }
-            }
-        })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        let { codeName, codeSource, codeArtist, favorites } = this.state.inputs;
-        const filter = {
-            title: codeName,
-            artist: codeArtist
-        }
-        database.push(filter);
-    }
-
-    render() {
-        let { codeName, codeArtist, codeSource, favorites } = this.state;
-        return (
-            <div>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group>
-                        <Form.Input label="Filter Name" onChange={this.handleChange} name="codeName" value={codeName} />
-                        <Form.Input label="Filter Artist" onChange={this.handleChange} name="codeArtist" value={codeArtist} />
-                        {/* <FileUpload value={codeSource} /> */}
-                        <Button>Publish!</Button>
-                    </Form.Group>
-                </Form>
-                <br />
-                {this.renderPosts()}
-            </div>
-        )
-    }
-};
-
-
-function mapStateToProps(state, ownProps){
-    return {
-        filters: state.filters
-    }
+  render() {
+    return (
+      <div>
+        <form>
+          <label>Username:</label>
+          <input type="text" value={this.state.username} name="username" onChange={this.handleChangeUsername} />
+          <label>Avatar:</label>
+          {this.state.isUploading &&
+            <p>Progress: {this.state.progress}</p>
+          }
+          {this.state.avatarURL &&
+            <img src={this.state.avatarURL} />
+          }
+          <FileUploader
+            accept="image/*"
+            name="avatar"
+            randomizeFilename
+            storageRef={firebase.storage().ref('images')}
+            onUploadStart={this.handleUploadStart}
+            onUploadError={this.handleUploadError}
+            onUploadSuccess={this.handleUploadSuccess}
+            onProgress={this.handleProgress}
+          />
+        </form>
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps, {getFilters, saveFilter} )(UploadForm);
+export default UploadForm;

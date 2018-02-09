@@ -1,12 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 
-import UploadForm from './UploadForm';
+import Filters from './Filters';
 
 function App(props) {
     return (
         <div>
-            <UploadForm add />
+            <Filters/>
             
         </div>
     )
