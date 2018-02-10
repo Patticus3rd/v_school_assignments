@@ -1,51 +1,77 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import { database } from '../../firebase';
 import FileUploader from 'react-firebase-file-uploader';
+
+
+
+const imgFilter = firebase.storage().ref('images')
+
 
 class UploadForm extends Component {
   state = {
-    username: '',
-    avatar: '',
+    filterName: '',
+    filter: '',
     isUploading: false,
     progress: 0,
-    avatarURL: ''
-  };
+    filterURL: '',
+    };
+  
 
-  handleChangeUsername = (event) => this.setState({username: event.target.value});
-  handleUploadStart = () => this.setState({isUploading: true, progress: 0});
-  handleProgress = (progress) => this.setState({progress});
+  sendURL = () => {
+    var postKey = database.snapshot.downloadUR
+  }
+
+
+  handleChangefilterName = (event) =>
+    this.setState({ filterName: event.target.value });
+
+  handleUploadStart = () =>
+    this.setState({ isUploading: true, progress: 0 });
+
+  handleProgress = (progress) =>
+    this.setState({ progress });
+
   handleUploadError = (error) => {
-    this.setState({isUploading: false});
+    this.setState({ isUploading: false });
     console.error(error);
   }
+
   handleUploadSuccess = (filename) => {
-    this.setState({avatar: filename, progress: 100, isUploading: false});
-    firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
-  };
+    this.setState({
+      filter: filename,
+      progress: 100,
+      isUploading: false,
+    });
+    imgFilter.child(filename).getDownloadURL()
+      .then(url => this.setState({ filterURL: url }))
+      this.sendURL()
+    };
 
   render() {
     return (
       <div>
         <form>
-          <label>Username:</label>
-          <input type="text" value={this.state.username} name="username" onChange={this.handleChangeUsername} />
-          <label>Avatar:</label>
+          <label>Filter Name:</label>
+          <input type="text" value={this.state.filterName} name="filterName" onChange={this.handleChangefilterName} />
+          <label>Image:</label>
           {this.state.isUploading &&
             <p>Progress: {this.state.progress}</p>
           }
-          {this.state.avatarURL &&
-            <img src={this.state.avatarURL} />
+          {this.state.filterURL &&
+            <img src={this.state.filterURL} />
           }
           <FileUploader
             accept="image/*"
-            name="avatar"
-            randomizeFilename
-            storageRef={firebase.storage().ref('images')}
+            name="image"
+            filename={file => this.state.filterName }
+            storageRef={imgFilter}
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
           />
+          <button>Submit</button>
         </form>
       </div>
     );

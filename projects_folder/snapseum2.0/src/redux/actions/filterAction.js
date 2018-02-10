@@ -1,9 +1,9 @@
 import { GET_FILTERS } from './actionTypes.js';
-import { database } from '../../firebase.js';
+import { images } from '../../firebase.js';
 
 export function getFilters() {
     return dispatch => {
-        database.on('value', snapshot => {
+        images.on('value', snapshot => {
             dispatch({
                 type: GET_FILTERS,
                 payload: snapshot.val()
@@ -12,8 +12,5 @@ export function getFilters() {
     }
 }
 
-export function saveFilter(filter){
-   return dispatch => database.push(filter);
-}
 
 //this file is an action type.
