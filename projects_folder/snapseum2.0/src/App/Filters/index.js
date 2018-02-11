@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import FilterCard from './FilterCard';
+import axios from 'axios';
 
+const filterURL = "http://localhost:9000/snapcodes/"
 
-const imgFilter = firebase.storage().refFromURL('https://firebasestorage.googleapis.com/v0/b/snapseum.appspot.com/o/images%2Fasd.JPG?alt=media&token=18ced55f-45bf-4f62-8650-6ab6306a1a6c')
-
-class Filters extends Component{
-    constructor(){
-        super();
+class Filters extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            images: ''
+            filters: []
         }
     }
+    componentDidMount() {
+        axios.get(filterURL)
+            .then((response) => {
+                let { data } = response;
+                console.log(data);
+                this.setState({
+                    filters: data
+                })
+            })
+    }
 
-  
 
-    render(){
-        
-        return(
+    render() {
+        let { filters } = this.state;
+        return (
             <div>
-             test
+                {filters.map((filter, id) => {
+                    return <FilterCard key={id}{...filter} index={id} />
+                })}
             </div>
         )
     }

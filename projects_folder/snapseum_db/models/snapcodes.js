@@ -2,17 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const codeSchema = new Schema({
-    codeName: {
+    filterName: {
         type: String,
         required: true
     },
-    codeArtist: {
+    filterArtist: {
         type: String,
         required: true
     },
     favorites: {
         type: Boolean,
         default: false
+    },
+    filterURL: {
+        type: String,
+        required: true
     }
 })
 
