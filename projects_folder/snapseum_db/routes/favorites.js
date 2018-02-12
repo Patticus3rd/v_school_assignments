@@ -13,4 +13,12 @@ favRoutes.get('/', (req, res) => {
     })
 })
 
+favRoutes.delete('/:id', (req, res) => {
+    let { id } = req.params;
+    snapCodes.findByIdAndRemove(id, (err, removedFavorite) => {
+        if(err) return res.status(500).send(err);
+        return res.send(removedFavorite)
+    })
+})
+
 module.exports = favRoutes;

@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body, html {
+    height: 100%;
+}
 .header-home {
-    background-image: url('../App/shared/images/download.png') no-repeat center center fixed;
     padding-top: 150px;
     background-size: cover;
-    line-height: 40px;
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: auto;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header {

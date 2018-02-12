@@ -39,20 +39,14 @@ snapRoutes.get('/:id', (req, res) => {
         return res.send(singleCode)
     })
 })
-
 snapRoutes.delete('/:id', (req, res) => {
     let { id } = req.params;
-    snapCodes.findOneAndRemove(id, (err, removedCode) => {
+    snapCodes.findByIdAndRemove(id, (err, removedFilter) => {
         if(err) return res.status(500).send(err);
-        return res.send(removedCode)
+        return res.send(removedFilter)
     })
 })
 
-snapRoutes.get('/favorites', (req, res) => {
-    snapCodes.find({"favorites": true}, (err, favoritedCode) => {
-        if(err) return res.status(500).send(err);
-        return res.send(favoritedCode)
-    })
-})
+
 
 module.exports = snapRoutes;

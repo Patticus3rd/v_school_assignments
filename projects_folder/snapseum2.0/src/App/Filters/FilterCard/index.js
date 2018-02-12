@@ -1,13 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { addFavorite } from '../../../redux/favorites.js';
 import { Image, Card, Button, Icon } from 'semantic-ui-react';
 
 function FilterCard(props) {
-    let { filterName, filterArtist, filterURL, favorites } = props;
+    let { filterName, filterArtist, filterURL, _id } = props;
     return (
             <Card>
-                <Image src={filterURL} />
+                <Image src={filterURL} size="small" centered />
                 <Card.Content>
-                    <Card.Header>
+                    <Card.Header >
                         {filterName}
                     </Card.Header>
                     <Card.Description>
@@ -15,15 +17,16 @@ function FilterCard(props) {
                     </Card.Description>
                     <Card.Content>
                         <Button as='div' labelPosition='right'>
-                            <Button icon>
+                            <Button icon onClick={() => addFavorite(_id)}>
                                 <Icon name="heart" />
                                 Like
         </Button>
                         </Button>
+                        
                     </Card.Content>
                 </Card.Content>
             </Card>
     )
 }
 
-export default FilterCard;
+export default connect(null, { addFavorite })(FilterCard);

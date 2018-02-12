@@ -5,7 +5,8 @@ import Home from '../pages/home.js';
 import Filters from './Filters/index.js';
 import NavBar from './NavBar'
 import Favorites from './Favorites';
-import { addFilter } from '../redux/filters.js'; 
+import { addFilter } from '../redux/filters.js';
+import { addFavorite, deleteFavorite } from '../redux/favorites.js';
 
 
 
@@ -15,9 +16,9 @@ function App(props) {
             <NavBar />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/filters" component={Filters} />
+                <Route path="/filters" render={(props) => <Filters {...props} add={addFavorite} />} />
                 <Route path="/upload" render={(props) => <UploadForm {...props} add={addFilter} />} />
-                <Route path="/favorites" component={Favorites} />
+                <Route path="/favorites" render={(props) => <Favorites {...props} remove={deleteFavorite} />} />
             </Switch>
         </div>
     )
