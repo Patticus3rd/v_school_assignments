@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 //import Routes
 const snapRoutes = require('./routes/snapcodes.js');
+const favRoutes = require('./routes/favorites.js');
 
 
 //define server port
@@ -19,6 +20,7 @@ app.use(logger())
 
 //routes
 app.use('/snapcodes', snapRoutes);
+app.use('/favorites', favRoutes);
 
 //connect mongoose
 mongoose.connect('mongodb://localhost:27017'), (err) => {

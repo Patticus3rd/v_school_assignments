@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .header-home {
-    font-size: 40px;
+    background-image: url('../App/shared/images/download.png') no-repeat center center fixed;
     padding-top: 150px;
+    background-size: cover;
+    line-height: 40px;
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
 }
 
-.header{
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Lato', sans-serif;
+    color: #2196f3;
+    font-size: 60px;
 }

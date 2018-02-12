@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addFilter } from '../../redux/filters';
 import FileUploader from 'react-firebase-file-uploader';
 import { Form, Button, Image } from 'semantic-ui-react';
+import './index.css';
 
 const imgFilter = firebase.storage().ref('images')
 
@@ -20,26 +21,37 @@ class UploadForm extends Component {
       filterURL: '',
     }
     this.clearInputs = this.clearInputs.bind(this)
+    this.handleChangefilterArtist = this.handleChangefilterArtist.bind(this)
+    this.handleChangefilterName = this.handleChangefilterName.bind(this)
+    this.handleUploadError = this.handleUploadError.bind(this)
+    this.handleUploadStart = this.handleUploadStart.bind(this)
+    this.handleProgress = this.handleProgress.bind(this)
+    this.handleUploadSuccess = this.handleUploadSuccess.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChangefilterName = (event) =>
-    this.setState({ filterName: event.target.value });
+  handleChangefilterName(event){
+    this.setState({ filterName: event.target.value })
+  }
 
-  handleChangefilterArtist = (event) =>
-    this.setState({ filterArtist: event.target.value });
-
-  handleUploadStart = () =>
-    this.setState({ isUploading: true, progress: 0 });
-
-  handleProgress = (progress) =>
-    this.setState({ progress });
-
-  handleUploadError = (error) => {
+  handleChangefilterArtist(event){
+    this.setState({ filterArtist: event.target.value })
+  }
+  
+  handleUploadStart(){
+    this.setState({ isUploading: true, progress: 0 })
+  }
+    
+  handleProgress(progress){
+    this.setState({ progress })
+  }
+  
+  handleUploadError(error){
     this.setState({ isUploading: false });
     console.error(error);
   }
 
-  handleUploadSuccess = (filename) => {
+  handleUploadSuccess(filename){
     this.setState({
       filter: filename,
       progress: 100,
@@ -50,7 +62,7 @@ class UploadForm extends Component {
       )
   };
 
-  handleSubmit = (e) => {
+  handleSubmit(e){
     this.setState({
       progress: 100,
       isUploading: false,
@@ -79,19 +91,13 @@ class UploadForm extends Component {
 
   render() {
     return (
-      <div>
+      <div class='form-wrapper'>
         <Form onSubmit={this.handleSubmit}>
           <label>Filter Name:</label>
           <input type="text" value={this.state.filterName} name="filterName" onChange={this.handleChangefilterName} />
           <label>Filter Artist:</label>
           <input type="text" value={this.state.filterArtist} name="filterArtist" onChange={this.handleChangefilterArtist} />
           <label>Image:</label>
-          {this.state.isUploading &&
-            <p>Progress: {this.state.progress}</p>
-          }
-          {this.state.filterURL &&
-            <Image src={this.state.filterURL} />
-          }
           <FileUploader
             accept="image/*"
             name="image"
@@ -102,6 +108,12 @@ class UploadForm extends Component {
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
           />
+          {this.state.isUploading &&
+            <p>Progress: {this.state.progress}</p>
+          }
+          {this.state.filterURL &&
+            <Image src={this.state.filterURL} />
+          }
           <Button>Submit</Button>
         </Form>
       </div>

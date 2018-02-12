@@ -48,4 +48,11 @@ snapRoutes.delete('/:id', (req, res) => {
     })
 })
 
+snapRoutes.get('/favorites', (req, res) => {
+    snapCodes.find({"favorites": true}, (err, favoritedCode) => {
+        if(err) return res.status(500).send(err);
+        return res.send(favoritedCode)
+    })
+})
+
 module.exports = snapRoutes;

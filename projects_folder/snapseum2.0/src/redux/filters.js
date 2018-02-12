@@ -29,4 +29,5 @@ export const addFilter = (inputs) => {
 }
 
 
+
 export default filtersReducer;

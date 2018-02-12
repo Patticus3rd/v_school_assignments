@@ -6,22 +6,13 @@ import { Menu } from 'semantic-ui-react';
 function NavBar(props) {
     return (
         <div class="nav-wrapper">
-        <Menu color='yellow' inverted>
-             <Link to="/" >
-             <Menu.Item name='home'>Home</Menu.Item>
-             </Link>
-            <Link to="/filters" >
-            <Menu.Item name='filters'>Filters</Menu.Item>
-            </Link>
-            <Link to="/upload" textAlign="center">
-            <Menu.Item name='upload'>Upload</Menu.Item>
-            </Link>
-            <Link to="/favorites" textAlign="center">
-            <Menu.Item name='favorites'>Favorites</Menu.Item>
-            </Link>
-        </Menu>
+            <Link className='link-text' to="/" >Home</Link>
+            <Link className='link-text' to="/filters">Filters</Link>
+            <Link className='link-text' to="/upload">Upload</Link>
+            <Link className='link-text' to="/favorites">Favorites</Link>
         </div>
     )
 }
 
 export default NavBar;
+

@@ -1,13 +1,23 @@
-* {
-    box-sizing: border-box;
-    margin: 0
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .nav-wrapper{
     display: flex;
     justify-content: space-around;
-    align-content: center;
-    align-items: center;
     font-size: 20px;
-    padding: 30px;
+    padding-top: 20px;
+    background-color: #e91e63;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+.link-text {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffe400;
+    justify-content: center;
+
 }

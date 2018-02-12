@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FilterCard from './FilterCard';
 import axios from 'axios';
+import { Card } from 'semantic-ui-react';
 
 const filterURL = "http://localhost:9000/snapcodes/"
 
@@ -27,9 +28,11 @@ class Filters extends Component {
         let { filters } = this.state;
         return (
             <div>
+                <Card.Group itemsPerRow={5}>
                 {filters.map((filter, id) => {
                     return <FilterCard key={id}{...filter} index={id} />
                 })}
+                </Card.Group>
             </div>
         )
     }
