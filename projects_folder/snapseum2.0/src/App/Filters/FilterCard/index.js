@@ -1,8 +1,8 @@
 import React from 'react'
-import { Image, Card } from 'semantic-ui-react';
+import { Image, Card, Button, Icon } from 'semantic-ui-react';
 
 function FilterCard(props) {
-    let { filterName, filterArtist, filterURL, favorites} = props;
+    let { filterName, filterArtist, filterURL, favorites } = props;
     return (
         <Card>
             <Image src={filterURL} />
@@ -12,7 +12,15 @@ function FilterCard(props) {
                 </Card.Header>
                 <Card.Description>
                     Made By: {filterArtist}
-      </Card.Description>
+                </Card.Description>
+                <Card.Content>
+                    <Button as='div' labelPosition='right'>
+                        <Button icon>
+                            <Icon name="heart" />
+                            Like
+        </Button>
+                    </Button>
+                </Card.Content>
             </Card.Content>
         </Card>
     )

@@ -62,6 +62,8 @@ class UploadForm extends Component {
       this.clearInputs()
     }
   }
+
+
   clearInputs = () => {
     this.setState({
         filterName: '',
