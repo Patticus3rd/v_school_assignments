@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DemArticle from './DemArticle';
-import { Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import RepArticle from './RepArticle';
+import { Segment, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
-const repsURL = "http://localhost:9000/republicans/"
+const demsURL = "http://localhost:9000/democrats"
 
-class Dems extends Component {
+class Reps extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class Dems extends Component {
         }
     }
     componentDidMount(){
-        axios.get(repsURL)
+        axios.get(demsURL)
         .then((response) => {
             console.log(response)
             this.setState({
@@ -29,15 +29,15 @@ class Dems extends Component {
         let { articles } = this.state;
         return(
             <div>
-            <Link className="link-wrapper" to="/repform">
+                <Link className="link-wrapper" to="/daform">
                     <Icon name='write'/>
-                </Link> 
+                </Link>        
                 {articles.map((article, i) => {
-                    return <DemArticle key={i}{...article} />
+                    return <RepArticle key={i}{...article} />
                 })}
             </div>
         )
     }
 }
 
-export default Dems;
+export default Reps;

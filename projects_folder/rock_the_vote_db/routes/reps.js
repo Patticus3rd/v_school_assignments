@@ -11,13 +11,6 @@ repsRoutes.get('/', (req, res) => {
     })
 })
 
-// repsRoutes.get('/random', (req, res) => {
-//     Reps.findRandom((err, rep) => {
-//         console.log(rep)
-//     })
-// })
-
-
 repsRoutes.post('/', (req, res) => {
     const newArticle = new Reps(req.body);
     newArticle.save((err) => {
