@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Card, Button, Icon } from 'semantic-ui-react';
+import Comments from '../../Comments';
 
 
 
@@ -8,10 +9,20 @@ class RepArticle extends Component {
         super(props);
         this.state = {
             clicks: 0,
-            show: true
+            show: true,
+            toggleComments: false,
         }
         this.incrementVote = this.incrementVote.bind(this)
         this.decreaseVote = this.decreaseVote.bind(this)
+        this.handleComments = this.handleComments.bind(this)
+    }
+
+    handleComments() {
+        this.setState((prevState) => {
+            return {
+                toggleComments: !prevState.toggleComments
+            }
+        })
     }
 
     incrementVote() {
@@ -24,7 +35,9 @@ class RepArticle extends Component {
         this.setState({ show: !this.state.show });
     }
     render() {
-        let { articleSource, articleTitle } = this.props;
+        let { toggleComments } = this.state;
+        let { articleSource, articleTitle, comments } = this.props;
+        let formStyle = { display: toggleComments ? "inherit" : "none" }
         return (
             <div>
                 <Card.Group>
@@ -36,10 +49,15 @@ class RepArticle extends Component {
                             {articleTitle}
                         </Card.Content>
                         <Card.Content extra>
-                            <div>
-                                <Button size='mini' onClick={this.incrementVote} color='green'><Icon name='arrow up'/></Button>
-                                <Button size='mini' onClick={this.decreaseVote} color='red'><Icon name='arrow down'/></Button>
-                                {this.state.show ? <h3>{this.state.clicks}</h3> : ''}
+                            <Button size='mini' onClick={this.incrementVote} color='green'><Icon name='arrow up' /></Button>
+                            <Button size='mini' onClick={this.decreaseVote} color='red'><Icon name='arrow down' /></Button>
+                            {this.state.show ? <h3>{this.state.clicks}</h3> : ''}
+                            <Button size='mini' onClick={this.handleComments}>Comments</Button>
+                            <div style={formStyle}>
+                                <Comments />
+                                <div>
+                                *{comments}
+                                </div>
                             </div>
                         </Card.Content>
                     </Card>

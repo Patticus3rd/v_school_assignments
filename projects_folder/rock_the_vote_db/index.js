@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 //import routes
-const demsRoute = require('./routes/dems.js');
-const repsRoute = require('./routes/reps.js');
+const articleRoutes = require('./routes/articles')
 
 //define server port
 const app = express();
@@ -16,8 +15,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //routes
-app.use('/democrats', demsRoute );
-app.use('/republicans', repsRoute );
+app.use('/articles', articleRoutes);
+
 
 //connect mongoose to db
 mongoose.connect('mongodb://localhost:27017', (err) => {

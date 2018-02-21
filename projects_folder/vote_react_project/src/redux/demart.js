@@ -9,6 +9,15 @@ const demsReducer = (prevState = { data: [], loading: true}, action) => {
             data: [...prevState.data, action.data],
             loading: false
         }
+        case "EDIT_ARTICLE":
+            return {
+                loading: false,
+                data: prevState.data.map((comment) => {
+                    if (comment._id === action.index) {
+                        return action.updatedComment;
+                    }
+                })
+            }
         default:
         return prevState
     }
@@ -27,6 +36,18 @@ export function addRep(newArticle){
     }
 }
 
+export const editDemArticle = (updatedComment, index) => {
+    return function action(dispatch) {
+        axios.put(ArticleURL + index, updatedComment)
+        .then((response) => {
+            dispatch({ 
+                type: "EDIT_ARTICLE",
+                updatedComment: response.data,
+                index
+            })
+        })
+    }
+}
 
 
 export default demsReducer;
